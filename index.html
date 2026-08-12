@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 工具导航 - 首页</title>
+    <!-- 网页小图标（favicon）：用 emoji 图标，避免浏览器请求 favicon.ico 报 404 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+
+    <!-- ===== 顶部导航栏（三个页面共用同一份） ===== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a class="nav-brand" href="index.html">AI 工具导航</a>
+            <div class="nav-links">
+                <a href="index.html" data-target="home">首页</a>
+                <a href="tools.html" data-target="tools">工具库</a>
+                <a href="about.html" data-target="about">关于我</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===== 我的收藏栏（收藏功能，没有收藏时自动隐藏） ===== -->
+        <div class="fav-bar" id="favBar" style="display:none">
+            <div class="fav-bar-title">⭐ 我的收藏</div>
+            <!-- 收藏的工具会由 script.js 动态生成到这里 -->
+            <div class="fav-list" id="favList"></div>
+        </div>
+
+        <!-- ===== 顶部区域：站名 + 搜索框 ===== -->
+        <div class="hero">
+            <h1>AI <span>工具导航</span></h1>
+            <p>精选 AI 工具，按分类快速找到你想要的</p>
+            <form class="search-box" id="homeSearchForm">
+                <input type="text" id="homeSearch" placeholder="试试搜索：画图 / 编程 / 写作">
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+
+        <!-- ===== 分类入口：点击跳转工具库对应区块 ===== -->
+        <h2 class="section-title">工具分类</h2>
+        <div class="grid">
+
+            <a class="cat-card cat-chat" href="tools.html#cat-chat">
+                <div class="cat-icon">💬</div>
+                <div class="cat-name">AI 对话</div>
+                <div class="cat-count">6 个工具</div>
+            </a>
+
+            <a class="cat-card cat-write" href="tools.html#cat-write">
+                <div class="cat-icon">✏️</div>
+                <div class="cat-name">AI 写作</div>
+                <div class="cat-count">4 个工具</div>
+            </a>
+
+            <a class="cat-card cat-draw" href="tools.html#cat-draw">
+                <div class="cat-icon">🎨</div>
+                <div class="cat-name">AI 画图</div>
+                <div class="cat-count">5 个工具</div>
+            </a>
+
+            <a class="cat-card cat-code" href="tools.html#cat-code">
+                <div class="cat-icon">💻</div>
+                <div class="cat-name">AI 编程</div>
+                <div class="cat-count">5 个工具</div>
+            </a>
+
+            <a class="cat-card cat-office" href="tools.html#cat-office">
+                <div class="cat-icon">📊</div>
+                <div class="cat-name">AI 办公/PPT</div>
+                <div class="cat-count">4 个工具</div>
+            </a>
+
+            <a class="cat-card cat-video" href="tools.html#cat-video">
+                <div class="cat-icon">🎬</div>
+                <div class="cat-name">AI 视频</div>
+                <div class="cat-count">4 个工具</div>
+            </a>
+
+            <a class="cat-card cat-audio" href="tools.html#cat-audio">
+                <div class="cat-icon">🎵</div>
+                <div class="cat-name">AI 音频/音乐</div>
+                <div class="cat-count">4 个工具</div>
+            </a>
+
+        </div>
+
+        <!-- ===== 推荐工具 ===== -->
+        <h2 class="section-title">本周推荐</h2>
+        <div class="tool-grid">
+            <div class="tool-card cat-chat">
+                <img class="tool-icon" src="img/chatgpt.webp" alt="ChatGPT 图标">
+                <div class="tool-name">ChatGPT</div>
+                <div class="tool-desc">OpenAI 的对话助手，最知名的 AI 之一，写代码、查资料、聊天都能用。</div>
+                <a class="tool-link" href="https://chatgpt.com" target="_blank">访问</a>
+            </div>
+            <div class="tool-card cat-draw">
+                <img class="tool-icon" src="img/midjourney.webp" alt="Midjourney 图标">
+                <div class="tool-name">Midjourney</div>
+                <div class="tool-desc">AI 画图天花板，输入一句话就能生成精美图片。</div>
+                <a class="tool-link" href="https://www.midjourney.com" target="_blank">访问</a>
+            </div>
+            <div class="tool-card cat-code">
+                <img class="tool-icon" src="img/copilot.svg" alt="GitHub Copilot 图标">
+                <div class="tool-name">GitHub Copilot</div>
+                <div class="tool-desc">写代码时的 AI 助手，自动补全代码，初学者也能看懂报错。</div>
+                <a class="tool-link" href="https://github.com/features/copilot" target="_blank">访问</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== 页脚 ===== -->
+    <div class="footer">猪猪的 AI 工具导航 · 用爱发电</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

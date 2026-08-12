@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 工具导航 - 工具库</title>
+    <!-- 网页小图标（favicon）：用 emoji 图标，避免浏览器请求 favicon.ico 报 404 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="tools">
+
+    <!-- ===== 顶部导航栏 ===== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a class="nav-brand" href="index.html">AI 工具导航</a>
+            <div class="nav-links">
+                <a href="index.html" data-target="home">首页</a>
+                <a href="tools.html" data-target="tools">工具库</a>
+                <a href="about.html" data-target="about">关于我</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===== 我的收藏栏（收藏功能，没有收藏时自动隐藏） ===== -->
+        <div class="fav-bar" id="favBar" style="display:none">
+            <div class="fav-bar-title">⭐ 我的收藏</div>
+            <!-- 收藏的工具会由 script.js 动态生成到这里 -->
+            <div class="fav-list" id="favList"></div>
+        </div>
+
+        <div class="hero">
+            <h1>工具库</h1>
+            <p>按分类浏览全部收录的 AI 工具</p>
+            <!-- 工具库搜索框：输入实时过滤 -->
+            <div class="search-box">
+                <input type="text" id="toolSearch" placeholder="搜索工具名或分类，如：ChatGPT / 画图">
+            </div>
+        </div>
+
+        <!-- ===== 无结果提示 ===== -->
+        <div class="no-result" id="noResult">没有找到匹配的工具，换个关键词试试～</div>
+
+        <!-- ===== AI 对话 ===== -->
+        <div class="cat-section cat-chat" id="cat-chat">
+            <h2 class="cat-title">AI 对话</h2>
+            <div class="tool-grid">
+
+                <div class="tool-card cat-chat" data-keywords="chatgpt openai 对话 聊天 ai 对话">
+                    <img class="tool-icon" src="img/chatgpt.webp" alt="ChatGPT 图标">
+                <div class="tool-name">ChatGPT</div>
+                    <div class="tool-desc">OpenAI 的对话助手，最知名的 AI 之一。</div>
+                    <a class="tool-link" href="https://chatgpt.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-chat" data-keywords="claude anthropic 对话 聊天 ai 对话">
+                    <img class="tool-icon" src="img/claude.webp" alt="Claude 图标">
+                <div class="tool-name">Claude</div>
+                    <div class="tool-desc">Anthropic 出品，擅长长文本和深度对话。</div>
+                    <a class="tool-link" href="https://claude.ai" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-chat" data-keywords="kimi 月之暗面 对话 聊天 ai 对话">
+                    <img class="tool-icon" src="img/kimi.webp" alt="Kimi 图标">
+                <div class="tool-name">Kimi</div>
+                    <div class="tool-desc">国产对话助手，能读超长文档和链接。</div>
+                    <a class="tool-link" href="https://kimi.moonshot.cn" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-chat" data-keywords="豆包 字节跳动 对话 聊天 ai 对话">
+                    <img class="tool-icon" src="img/doubao.webp" alt="豆包 图标">
+                <div class="tool-name">豆包</div>
+                    <div class="tool-desc">字节跳动出品，免费好用，App 和网页都有。</div>
+                    <a class="tool-link" href="https://www.doubao.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-chat" data-keywords="文心一言 百度 对话 聊天 ai 对话">
+                    <img class="tool-icon" src="img/yiyan.webp" alt="文心一言 图标">
+                <div class="tool-name">文心一言</div>
+                    <div class="tool-desc">百度推出的对话助手，中文能力强。</div>
+                    <a class="tool-link" href="https://yiyan.baidu.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-chat" data-keywords="通义千问 阿里 对话 聊天 ai 对话">
+                    <img class="tool-icon" src="img/tongyi.webp" alt="通义千问 图标">
+                <div class="tool-name">通义千问</div>
+                    <div class="tool-desc">阿里云出品，办公学习场景覆盖广。</div>
+                    <a class="tool-link" href="https://tongyi.aliyun.com" target="_blank">访问</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== AI 写作 ===== -->
+        <div class="cat-section cat-write" id="cat-write">
+            <h2 class="cat-title">AI 写作</h2>
+            <div class="tool-grid">
+
+                <div class="tool-card cat-write" data-keywords="笔灵 写作 文案 报告 ai 写作">
+                    <img class="tool-icon" src="img/biling.webp" alt="笔灵AI 图标">
+                <div class="tool-name">笔灵AI</div>
+                    <div class="tool-desc">国产写作助手，写作文、报告、文案都好用。</div>
+                    <a class="tool-link" href="https://ibiling.cn" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-write" data-keywords="秘塔写作猫 写作 校对 改写 ai 写作">
+                    <img class="tool-icon" src="img/xiezuocat.webp" alt="秘塔写作猫 图标">
+                <div class="tool-name">秘塔写作猫</div>
+                    <div class="tool-desc">中文写作校对工具，检查错别字和语病。</div>
+                    <a class="tool-link" href="https://xiezuocat.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-write" data-keywords="jasper 英文 写作 营销 ai 写作">
+                    <img class="tool-icon" src="img/jasper.webp" alt="Jasper 图标">
+                <div class="tool-name">Jasper</div>
+                    <div class="tool-desc">英文营销文案神器，广告、推文一键生成。</div>
+                    <a class="tool-link" href="https://www.jasper.ai" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-write" data-keywords="通义效率 阿里 写作 会议 ai 写作">
+                    <img class="tool-icon" src="img/tongyi-xiaolv.webp" alt="通义效率 图标">
+                <div class="tool-name">通义效率</div>
+                    <div class="tool-desc">会议纪要、文档总结、PPT 大纲，效率工具全家桶。</div>
+                    <a class="tool-link" href="https://tongyi.aliyun.com" target="_blank">访问</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== AI 画图 ===== -->
+        <div class="cat-section cat-draw" id="cat-draw">
+            <h2 class="cat-title">AI 画图</h2>
+            <div class="tool-grid">
+
+                <div class="tool-card cat-draw" data-keywords="midjourney 画图 图片 生成 ai 画图">
+                    <img class="tool-icon" src="img/midjourney.webp" alt="Midjourney 图标">
+                <div class="tool-name">Midjourney</div>
+                    <div class="tool-desc">AI 画图天花板，输入一句话生成精美图片。</div>
+                    <a class="tool-link" href="https://www.midjourney.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-draw" data-keywords="dall-e openai 画图 图片 生成 ai 画图">
+                    <img class="tool-icon" src="img/dalle.webp" alt="DALL-E 图标">
+                <div class="tool-name">DALL-E</div>
+                    <div class="tool-desc">OpenAI 的图像生成模型，和 ChatGPT 深度整合。</div>
+                    <a class="tool-link" href="https://openai.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-draw" data-keywords="文心一格 百度 画图 图片 生成 ai 画图">
+                    <img class="tool-icon" src="img/yige.webp" alt="文心一格 图标">
+                <div class="tool-name">文心一格</div>
+                    <div class="tool-desc">百度的 AI 绘画平台，中文提示词友好。</div>
+                    <a class="tool-link" href="https://yige.baidu.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-draw" data-keywords="liblib 画图 模型 生成 ai 画图">
+                    <img class="tool-icon" src="img/liblib.webp" alt="LiblibAI 图标">
+                <div class="tool-name">LiblibAI</div>
+                    <div class="tool-desc">国内模型社区，各种风格模型随便挑。</div>
+                    <a class="tool-link" href="https://www.liblib.art" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-draw" data-keywords="即梦 剪映 画图 图片 生成 ai 画图">
+                    <img class="tool-icon" src="img/jimeng.webp" alt="即梦 图标">
+                <div class="tool-name">即梦</div>
+                    <div class="tool-desc">字节旗下 AI 创作平台，画图和视频都能做。</div>
+                    <a class="tool-link" href="https://jimeng.jianying.com" target="_blank">访问</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== AI 编程 ===== -->
+        <div class="cat-section cat-code" id="cat-code">
+            <h2 class="cat-title">AI 编程</h2>
+            <div class="tool-grid">
+
+                <div class="tool-card cat-code" data-keywords="github copilot 编程 代码 ai 编程">
+                    <img class="tool-icon" src="img/copilot.svg" alt="GitHub Copilot 图标">
+                <div class="tool-name">GitHub Copilot</div>
+                    <div class="tool-desc">写代码时的 AI 助手，自动补全代码。</div>
+                    <a class="tool-link" href="https://github.com/features/copilot" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-code" data-keywords="cursor 编辑器 编程 代码 ai 编程">
+                    <img class="tool-icon" src="img/cursor.webp" alt="Cursor 图标">
+                <div class="tool-name">Cursor</div>
+                    <div class="tool-desc">AI 代码编辑器，整个编辑器都是 AI 驱动的。</div>
+                    <a class="tool-link" href="https://cursor.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-code" data-keywords="通义灵码 阿里 编程 代码 ai 编程">
+                    <img class="tool-icon" src="img/tongyi-lingma.webp" alt="通义灵码 图标">
+                <div class="tool-name">通义灵码</div>
+                    <div class="tool-desc">阿里的编程助手，VS Code 插件免费装。</div>
+                    <a class="tool-link" href="https://tongyi.aliyun.com/lingma" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-code" data-keywords="replit 编程 在线 代码 ai 编程">
+                    <img class="tool-icon" src="img/replit.webp" alt="Replit 图标">
+                <div class="tool-name">Replit</div>
+                    <div class="tool-desc">在线编程平台，浏览器里写代码，自带 AI 助手。</div>
+                    <a class="tool-link" href="https://replit.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-code" data-keywords="v0 vercel 编程 网页 前端 ai 编程">
+                    <img class="tool-icon" src="img/v0.webp" alt="V0 图标">
+                <div class="tool-name">V0</div>
+                    <div class="tool-desc">Vercel 出品，用对话直接生成网页界面。</div>
+                    <a class="tool-link" href="https://v0.dev" target="_blank">访问</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== AI 办公/PPT ===== -->
+        <div class="cat-section cat-office" id="cat-office">
+            <h2 class="cat-title">AI 办公/PPT</h2>
+            <div class="tool-grid">
+
+                <div class="tool-card cat-office" data-keywords="gamma ppt 演示 办公 ai 办公">
+                    <img class="tool-icon" src="img/gamma.webp" alt="Gamma 图标">
+                <div class="tool-name">Gamma</div>
+                    <div class="tool-desc">一句话生成精美 PPT，还能做网页和文档。</div>
+                    <a class="tool-link" href="https://gamma.app" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-office" data-keywords="decktopus ppt 演示 办公 ai 办公">
+                    <img class="tool-icon" src="img/decktopus.svg" alt="Decktopus 图标">
+                <div class="tool-name">Decktopus</div>
+                    <div class="tool-desc">AI 演示文稿工具，模板丰富。</div>
+                    <a class="tool-link" href="https://www.decktopus.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-office" data-keywords="讯飞智文 讯飞 ppt 办公 ai 办公">
+                    <img class="tool-icon" src="img/zhiwen.webp" alt="讯飞智文 图标">
+                <div class="tool-name">讯飞智文</div>
+                    <div class="tool-desc">科大讯飞的 AI 文档助手，PPT 一键生成。</div>
+                    <a class="tool-link" href="https://zhiwen.xfyun.cn" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-office" data-keywords="美图 ppt 设计 办公 ai 办公">
+                    <img class="tool-icon" src="img/xdesign.webp" alt="美图 AI PPT 图标">
+                <div class="tool-name">美图 AI PPT</div>
+                    <div class="tool-desc">美图旗下设计工具，套模板做 PPT 很快。</div>
+                    <a class="tool-link" href="https://www.x-design.com" target="_blank">访问</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== AI 视频 ===== -->
+        <div class="cat-section cat-video" id="cat-video">
+            <h2 class="cat-title">AI 视频</h2>
+            <div class="tool-grid">
+
+                <div class="tool-card cat-video" data-keywords="runway 视频 生成 ai 视频">
+                    <img class="tool-icon" src="img/runway.webp" alt="Runway 图标">
+                <div class="tool-name">Runway</div>
+                    <div class="tool-desc">专业 AI 视频生成平台，功能强大。</div>
+                    <a class="tool-link" href="https://runwayml.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-video" data-keywords="剪映 视频 剪辑 ai 视频">
+                    <img class="tool-icon" src="img/jianying.webp" alt="剪映 图标">
+                <div class="tool-name">剪映</div>
+                    <div class="tool-desc">国内最流行的剪辑工具，AI 字幕、AI 配音都有。</div>
+                    <a class="tool-link" href="https://www.jianying.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-video" data-keywords="pika 视频 生成 ai 视频">
+                    <img class="tool-icon" src="img/pika.webp" alt="Pika 图标">
+                <div class="tool-name">Pika</div>
+                    <div class="tool-desc">文字生成视频，效果细腻，玩法多。</div>
+                    <a class="tool-link" href="https://pika.art" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-video" data-keywords="sora openai 视频 生成 ai 视频">
+                    <img class="tool-icon" src="img/sora.webp" alt="Sora 图标">
+                <div class="tool-name">Sora</div>
+                    <div class="tool-desc">OpenAI 的视频生成模型，画面真实感强。</div>
+                    <a class="tool-link" href="https://sora.com" target="_blank">访问</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== AI 音频/音乐 ===== -->
+        <div class="cat-section cat-audio" id="cat-audio">
+            <h2 class="cat-title">AI 音频/音乐</h2>
+            <div class="tool-grid">
+
+                <div class="tool-card cat-audio" data-keywords="suno 音乐 生成 ai 音频">
+                    <img class="tool-icon" src="img/suno.webp" alt="Suno 图标">
+                <div class="tool-name">Suno</div>
+                    <div class="tool-desc">输入歌词和风格，直接生成完整歌曲。</div>
+                    <a class="tool-link" href="https://suno.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-audio" data-keywords="elevenlabs 语音 配音 ai 音频">
+                    <img class="tool-icon" src="img/elevenlabs.webp" alt="ElevenLabs 图标">
+                <div class="tool-name">ElevenLabs</div>
+                    <div class="tool-desc">AI 语音天花板，配音、克隆声音都行。</div>
+                    <a class="tool-link" href="https://elevenlabs.io" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-audio" data-keywords="海螺 语音 配音 音乐 ai 音频">
+                    <img class="tool-icon" src="img/hailuo.webp" alt="海螺AI 图标">
+                <div class="tool-name">海螺AI</div>
+                    <div class="tool-desc">MiniMax 出品，语音对话、视频配音。</div>
+                    <a class="tool-link" href="https://hailuoai.com" target="_blank">访问</a>
+                </div>
+
+                <div class="tool-card cat-audio" data-keywords="udio 音乐 生成 ai 音频">
+                    <img class="tool-icon" src="img/udio.webp" alt="Udio 图标">
+                <div class="tool-name">Udio</div>
+                    <div class="tool-desc">音乐生成工具，和 Suno 齐名。</div>
+                    <a class="tool-link" href="https://www.udio.com" target="_blank">访问</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">猪猪的 AI 工具导航 · 用爱发电</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

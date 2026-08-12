@@ -1,0 +1,412 @@
+/* =========================================================
+   AI 工具导航站 - 共用样式
+   浅色多彩风：白底 + 分类彩色卡片
+   ========================================================= */
+
+/* ===== 全局 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* 边框和内边距算进宽度，排卡片不溢出 */
+}
+
+body {
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    background-color: #f8fafc;
+    color: #333333;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== 顶部导航栏 ===== */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);   /* 底部淡淡的阴影 */
+    position: sticky;          /* 滚动时导航栏固定在顶部 */
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   /* 站名左、链接右 */
+}
+
+.nav-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.nav-links a {
+    margin-left: 18px;
+    padding: 4px 2px;
+    color: #666666;
+    font-weight: 500;
+}
+
+/* 当前页面高亮：JS 给当前链接加 .active */
+.nav-links a.active {
+    color: #3b82f6;
+    border-bottom: 2px solid #3b82f6;
+}
+
+/* ===== 页面主体容器 ===== */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ===== 首页 hero ===== */
+.hero {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    color: #1f2937;
+}
+
+.hero h1 span {
+    color: #3b82f6;
+}
+
+.hero p {
+    color: #6b7280;
+    margin: 10px 0 24px;
+}
+
+/* ===== 搜索框 ===== */
+.search-box {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+    border-color: #3b82f6;   /* 聚焦时边框变蓝 */
+}
+
+.search-box button {
+    padding: 12px 20px;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #2563eb;
+}
+
+/* ===== 区块标题 ===== */
+.section-title {
+    font-size: 22px;
+    color: #1f2937;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title::before {
+    content: "";
+    width: 6px;
+    height: 22px;
+    border-radius: 3px;
+    background-color: #3b82f6;
+}
+
+/* ===== 分类卡片网格（首页入口 + 工具库区块） ===== */
+/* 每个分类用一个 class 设定 --cat 颜色，卡片统一引用 */
+.cat-chat   { --cat: #3b82f6; }
+.cat-write  { --cat: #22c55e; }
+.cat-draw   { --cat: #a855f7; }
+.cat-code   { --cat: #f97316; }
+.cat-office { --cat: #ec4899; }
+.cat-video  { --cat: #ef4444; }
+.cat-audio  { --cat: #06b6d4; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px;
+}
+
+/* 首页的分类入口卡 */
+.cat-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 22px 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--cat);   /* 顶部彩色条 */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cat-card .cat-icon {
+    font-size: 30px;
+}
+
+.cat-card .cat-name {
+    font-weight: bold;
+    margin-top: 8px;
+    color: #1f2937;
+}
+
+.cat-card .cat-count {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ===== 工具库页面 ===== */
+/* 分类区块标题：左侧色条跟随分类色 */
+.cat-section .cat-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 36px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cat-section .cat-title::before {
+    content: "";
+    width: 6px;
+    height: 20px;
+    border-radius: 3px;
+    background-color: var(--cat);
+}
+
+/* 工具卡片 */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+/* 工具卡顶部的 logo 图标 */
+.tool-card .tool-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: contain;      /* 图片等比缩放，不变形 */
+    background-color: #ffffff;
+    border: 1px solid #eef0f3;
+    padding: 5px;
+}
+
+.tool-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1px solid #eef0f3;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;   /* 收藏按钮要定位在卡片右上角，卡片需要相对定位 */
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.tool-card:hover {
+    border-color: var(--cat);
+    transform: translateY(-2px);
+}
+
+.tool-card .tool-name {
+    font-size: 17px;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.tool-card .tool-desc {
+    font-size: 14px;
+    color: #6b7280;
+    flex: 1;
+}
+
+.tool-card .tool-link {
+    align-self: flex-start;
+    background-color: var(--cat);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 14px;
+}
+
+.tool-card .tool-link:hover {
+    opacity: 0.85;
+}
+
+/* 搜索无结果提示 */
+.no-result {
+    display: none;
+    text-align: center;
+    color: #9ca3af;
+    padding: 40px 0;
+}
+
+/* ===== 关于我页面 ===== */
+.about-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 18px;
+}
+
+.about-card h2 {
+    font-size: 18px;
+    color: #3b82f6;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    color: #4b5563;
+    font-size: 15px;
+}
+
+.about-card .contact-item {
+    margin: 8px 0;
+    color: #4b5563;
+}
+
+.about-card .contact-item .label {
+    display: inline-block;
+    min-width: 44px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+/* ===== 页脚 ===== */
+.footer {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 14px;
+    padding: 30px 0 40px;
+}
+
+/* =========================================================
+   收藏工具功能样式（★ 按钮 + 我的收藏栏）
+   ========================================================= */
+
+/* ===== 我的收藏栏 ===== */
+/* 有收藏时显示，没有收藏时 script.js 会把它隐藏 */
+.fav-bar {
+    background-color: #fffbe6;          /* 淡黄色背景，和普通区域区分开 */
+    border: 1px solid #fde68a;          /* 浅金色边框 */
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 24px;                /* 和下面内容留一点距离 */
+}
+
+.fav-bar-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #b45309;                     /* 深金色标题文字 */
+    margin-bottom: 8px;
+}
+
+/* 收藏列表：横向排列的小标签 */
+.fav-list {
+    display: flex;
+    flex-wrap: wrap;                    /* 一行放不下自动换行 */
+    gap: 8px;
+}
+
+/* 单个收藏项：一个小胶囊标签 */
+.fav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffff;
+    border: 1px solid #fde68a;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 14px;
+}
+
+.fav-item a {
+    color: #1f2937;
+}
+
+.fav-item a:hover {
+    color: #3b82f6;                     /* 鼠标悬停变蓝 */
+}
+
+/* 收藏项里的"取消"小按钮 */
+.fav-item .fav-remove {
+    border: none;
+    background: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0;
+}
+
+.fav-item .fav-remove:hover {
+    color: #ef4444;                     /* 悬停变红，提示这是删除操作 */
+}
+
+/* ===== 工具卡右上角的 ★ 收藏按钮 ===== */
+.fav-btn {
+    position: absolute;                 /* 相对 .tool-card 定位 */
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    line-height: 1;
+    color: #d1d5db;                     /* 未收藏：灰色空星 */
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    z-index: 1;                         /* 盖在卡片其他内容上面 */
+}
+
+.fav-btn:hover {
+    color: #f59e0b;                     /* 悬停变金色，提示可收藏 */
+    transform: scale(1.15);             /* 稍微放大一点 */
+}
+
+/* 已收藏的 ★ 按钮：金色实心 */
+.fav-btn.faved {
+    color: #f59e0b;
+}
+
+/* 已收藏的工具卡：边框和阴影变金色，整体高亮 */
+.tool-card.faved {
+    border-color: #f59e0b;
+    box-shadow: 0 2px 10px rgba(245, 158, 11, 0.15);
+}
